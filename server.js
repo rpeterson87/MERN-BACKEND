@@ -5,7 +5,7 @@
 // Init .env vars
 require("dotenv").config();
 
-const { PORT, MONGODB_URI } = process.env;
+const { MONGODB_URI } = process.env;
 // const PORT = process.env.PORT
 // const MONGODB_URI = process.env.MONGODB_URI
 // Cors and morgan
