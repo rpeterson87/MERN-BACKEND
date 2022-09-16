@@ -30,7 +30,7 @@ mongoose.connect(MONGODB_URI);
 
 // Connection Events
 mongoose.connection
-  .on("open", () => console.log("This is my awesome amazing connection man"))
+  .on("open", () => console.log("Duck Duck...Oh wait this is Mongoose"))
   .on("close", () => console.log("Your are disconnected from mongoose :'("))
   .on("error", (error) => console.log(error));
 
@@ -59,5 +59,5 @@ app.get("/", (req, res) => {
 // LISTENER
 ////////////////////////////////
 app.listen(PORT, () => {
-    console.log(`I'm totally listening to you on port ${PORT}`)
+    console.log(`Digital Digital get down ${PORT}`)
 })
