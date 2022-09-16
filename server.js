@@ -17,7 +17,7 @@ const morgan = require("morgan");
 const app = express();
 
 // Add in mongoose
-const mongoose = require('mongoose');
+
 
 // My controllers 
 const peopleController = require('./controllers/people-controller')
@@ -28,13 +28,7 @@ const peopleController = require('./controllers/people-controller')
 // DATABASE CONNECTION
 ////////////////////////////////
 
-mongoose.connect(MONGODB_URI);
 
-// Connection Events
-mongoose.connection
-  .on("open", () => console.log("Duck Duck...Oh wait this is Mongoose"))
-  .on("close", () => console.log("Your are disconnected from mongoose :'("))
-  .on("error", (error) => console.log(error));
 
 
 ///////////////////////////////
