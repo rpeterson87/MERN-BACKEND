@@ -25,8 +25,8 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try{
         res.status(201).json(await People.findById(req.params.id))
-    }catch{
-
+    }catch(error){
+        console.log(error)
     }
 })
 // Put Route 
