@@ -13,5 +13,4 @@ mongoose.connection
 
 module.exports = {
     People: require('./People')
-
 }
