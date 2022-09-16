@@ -8,34 +8,38 @@ require("dotenv").config();
 const { PORT, MONGODB_URI } = process.env;
 // const PORT = process.env.PORT
 // const MONGODB_URI = process.env.MONGODB_URI
-// Cors and morgan
+
 const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-
-
 const app = express();
 
 // Add in mongoose
-
+const mongoose = require('mongoose');
 
 // My controllers 
 const peopleController = require('./controllers/people-controller')
 
-
+// Cors and morgan
+const cors = require("cors");
+const morgan = require("morgan");
 
 ///////////////////////////////
 // DATABASE CONNECTION
 ////////////////////////////////
 
+mongoose.connect(MONGODB_URI);
 
+// Connection Events
+mongoose.connection
+  .on("open", () => console.log("This is my awesome amazing connection man"))
+  .on("close", () => console.log("Your are disconnected from mongoose :'("))
+  .on("error", (error) => console.log(error));
 
 
 ///////////////////////////////
 // MIDDLEWEAR
 ////////////////////////////////
-app.use(cors()); //We now pray to whatever higher power or God we have that this works
 app.use(express.json()); //parse json
+app.use(cors()); //We now pray to whatever higher power or God we have that this works
 app.use(morgan("dev"));
 
 app.use('/people', peopleController);
@@ -55,5 +59,5 @@ app.get("/", (req, res) => {
 // LISTENER
 ////////////////////////////////
 app.listen(PORT, () => {
-    console.log(`Digital Digital get down ${PORT}`)
+    console.log(`I'm totally listening to you on port ${PORT}`)
 })
