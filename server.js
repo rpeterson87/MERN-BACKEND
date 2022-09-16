@@ -8,6 +8,9 @@ require("dotenv").config();
 const { PORT, MONGODB_URI } = process.env;
 // const PORT = process.env.PORT
 // const MONGODB_URI = process.env.MONGODB_URI
+// Cors and morgan
+const cors = require("cors");
+const morgan = require("morgan");
 
 const express = require("express");
 const app = express();
@@ -18,9 +21,7 @@ const mongoose = require('mongoose');
 // My controllers 
 const peopleController = require('./controllers/people-controller')
 
-// Cors and morgan
-const cors = require("cors");
-const morgan = require("morgan");
+
 
 ///////////////////////////////
 // DATABASE CONNECTION
