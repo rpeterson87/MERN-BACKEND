@@ -9,10 +9,11 @@ const { PORT, MONGODB_URI } = process.env;
 // const PORT = process.env.PORT
 // const MONGODB_URI = process.env.MONGODB_URI
 // Cors and morgan
+const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 
-const express = require("express");
+
 const app = express();
 
 // Add in mongoose
